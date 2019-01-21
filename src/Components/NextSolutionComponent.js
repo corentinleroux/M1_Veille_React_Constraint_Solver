@@ -4,25 +4,13 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
 class NextSolutionComponent extends Component{
-    constructor(){
-        super();
-        this.state={
-            resultConstraint:'',/*this.props.nextSolutionFiniteDomain,*/
-        }
-        this.handleChange = this.handleChange.bind(this);
-    }
-
-    handleChange (event) {
-        this.setState({ [event.target.name]: event.target.value });
-    }
-
     render(){
         return(
             <div>
                 <Card>
                     <CardContent>
                         <h2>Show next solution</h2>
-                        <Typography component="p"></Typography>
+                        <Typography component="p">{this.props.nextSolutionFiniteDomain}</Typography>
                     </CardContent>
                 </Card>
             </div>

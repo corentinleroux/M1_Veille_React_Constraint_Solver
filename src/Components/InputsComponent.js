@@ -72,8 +72,8 @@ class InputsComponent extends Component{
                     </CardContent>
                 </Card>
                 
-                <ConstraintComponent resultFiniteDomain={this.resultFiniteDomain}></ConstraintComponent>
-                <NextSolutionComponent /*nextSolution={this.state.nextSolutionFiniteDomain}*/></NextSolutionComponent>
+                <ConstraintComponent firstInput={this.state.firstInput} secondInput={this.state.secondInput} resultInput={this.state.resultInput} resultFiniteDomain={this.state.resultFiniteDomain}></ConstraintComponent>
+                <NextSolutionComponent nextSolutionFiniteDomain={this.state.nextSolutionFiniteDomain}></NextSolutionComponent>
             </div>
         );
     }
