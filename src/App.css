@@ -30,3 +30,18 @@
     transform: rotate(360deg);
   }
 }
+
+body{
+  background-color: rgb(241, 233, 220);
+}
+
+.globalContent{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.cardForm{
+  display: flex;
+  flex-direction: column;
+}

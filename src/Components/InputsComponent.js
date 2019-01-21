@@ -59,14 +59,14 @@ class InputsComponent extends Component{
     render(){
         console.log(this.state.firstInput)
         return(
-            <div style={{display: "flex", flexDirection:"row", justifyContent:"space-around"}}>
+            <div className="globalContent">
                 <Card>
                     <CardContent>
-                        <form noValidate autoComplete="off" style={{display: "flex", flexDirection: "column", verticalAlign: "right"}}>
+                        <form noValidate autoComplete="off" className="cardForm">
                             <h2>Word Addition</h2>
-                            <TextField name="firstInput" placeholder="Enter word here" onChange={this.handleChange} margin="normal"/>
-                            <TextField name="secondInput" placeholder="Enter word here" onChange={this.handleChange} margin="normal"/> 
-                            <TextField name="resultInput" placeholder="Enter word here" onChange={this.handleChange} margin="normal"/>
+                            <TextField name="firstInput" placeholder="Enter the first word here" onChange={this.handleChange} margin="normal"/>
+                            <TextField name="secondInput" placeholder="Enter the second word here" onChange={this.handleChange} margin="normal"/> 
+                            <TextField name="resultInput" placeholder="Enter result word here" onChange={this.handleChange} margin="normal"/>
                             <Button variant="contained" color="primary" onClick={this.handleClick}>Valider</Button>
                         </form>
                     </CardContent>
