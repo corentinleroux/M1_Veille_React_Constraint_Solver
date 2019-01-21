@@ -21,7 +21,7 @@ class NextSolutionComponent extends Component{
             <div>
                 <Card>
                     <CardContent>
-                        <Typography color="textSecondary" gutterBottom>Show next solution</Typography>
+                        <h2>Show next solution</h2>
                         <Typography component="p"></Typography>
                     </CardContent>
                 </Card>

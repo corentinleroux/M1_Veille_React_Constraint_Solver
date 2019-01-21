@@ -22,7 +22,7 @@ class ConstraintComponent extends Component{
             <div>
                 <Card>
                     <CardContent>
-                        <Typography color="textSecondary" gutterBottom>Show constraint expression {this.resultFiniteDomain}</Typography>
+                        <h2>Show constraint expression {this.resultFiniteDomain}</h2>
                         <Typography component="p">{this.resultFiniteDomain}</Typography>
                     </CardContent>
                 </Card>
