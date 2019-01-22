@@ -14,8 +14,9 @@ class InputsComponent extends Component{
             secondInput:'',
             resultInput:'',
 
-            resultFiniteDomain:'testResult',
-            nextSolutionFiniteDomain:'testSolution',
+            counter:1,
+            resultFiniteDomain:'',
+            nextSolutionFiniteDomain:'',
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
@@ -26,9 +27,13 @@ class InputsComponent extends Component{
     }
 
     handleClick(){
-        console.log(this.state.firstInput);
-        console.log(this.state.secondInput);
-        console.log(this.state.resultInput);
+        this.setState({
+            resultFiniteDomain: 'Constraint ' + this.state.counter,
+            nextSolutionFiniteDomain: 'NextSolution ' + this.state.counter});
+
+        this.state.counter++;
+
+        this.generateConstraint();
         /*
         Pour le groupe qui doit implémenter le solveur il faut le faire ici !!!! 
         @Stéphane !! 
@@ -39,19 +44,22 @@ class InputsComponent extends Component{
     generateConstraint(){
         var constraint;
 
-        if(this.state.resultInput.size() < this.state.firstInput.size() || this.state.resultInput.size() < this.state.secondInput.size()){
+        if(this.state.resultInput.size< this.state.firstInput.size|| this.state.resultInput.size < this.state.secondInput.size){
             return 'No possible constraint';
         }
 
-        var reverseFirst = this.state.firstInput.split("").reverse();
-        var reverseSecond = this.state.secondInput.split("").reverse();
-        var reverseResult = this.state.resultInput.split("").reverse();
+        var reverseFirst = this.state.firstInput.split("").reverse;
+        var reverseSecond = this.state.secondInput.split("").reverse;
+        var reverseResult = this.state.resultInput.split("").reverse;
 
-        var minimumIndex = Math.min(reverseFirst.size(), reverseSecond.size());
+        var minimumIndex = Math.min(reverseFirst.size, reverseSecond.size);
 
-        //for (i=0; i<minimumIndex; i++){
-        //    console.log(reverseFirst[i] + " + " + reverseSecond[i] + " = " + reverseResult[i]);
-        //}
+        console.log("Going to FORLOOP");
+
+        var i;
+        for (i=0; i<minimumIndex; i++){
+            console.log(reverseFirst[i] + " + " + reverseSecond[i] + " = " + reverseResult[i]);
+        }
 
         return constraint;
     }
