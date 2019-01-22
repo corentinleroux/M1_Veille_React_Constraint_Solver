@@ -41,7 +41,7 @@ class InputsComponent extends Component{
         const util = require('util');
 
         const inputs = [
-            this.state.firstInput + " + " + this.state.secondInput + " == " + this.state.resultInput
+            this.state.firstInput + " + " + this.state.secondInput + " == " + this.state.resultInput,
         ];
 
         var tokenize = function(input) {
@@ -99,6 +99,12 @@ class InputsComponent extends Component{
         }
 
         var solve = function(input, tokens, verbose) {
+        	console.log("TOTO : " + input);
+        	console.log("TITI " +JSON.stringify(tokens));
+        	console.log("objet" + tokens);
+        	console.log("affichage objet index : " + tokens[0]);
+        	//console.log("AZERTY :  " + tokens.get("c"));
+        	console.log("TATA " + verbose);
             let count = 0;
             var fringe = [ tokens ];
             let result = null;
@@ -150,8 +156,16 @@ class InputsComponent extends Component{
             const result = solve(data.parts, data.tokens);
 
             console.log('*** Solution ***');
+            //TODO Valentin
             console.log(util.inspect(result, true, 10));
-
+            console.log("Afficahge util" + JSON.stringify(util.inspect(result)));
+            console.log("Affichage result ::::: " + JSON.stringify(result));
+            console.log("affichage result sans stringify " + result[0]);
+            console.log(JSON.parse(JSON.stringify(result)));
+            let titi = JSON.parse(JSON.stringify(result));
+            for(var tutu in titi.values){
+            	console.log("KEY = " + tutu + "  VALUE = " + titi.values[tutu].value);
+            }
 
             console.log('');
         });
