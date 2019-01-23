@@ -14,8 +14,6 @@ class InputsComponent extends Component{
             secondInput:'',
             resultInput:'',
 
-            counter:1,
-            resultFiniteDomain:'',
             nextSolutionFiniteDomain:'',
         }
         this.handleChange = this.handleChange.bind(this);
@@ -31,9 +29,6 @@ class InputsComponent extends Component{
             resultFiniteDomain: 'Constraint ' + this.state.counter,
             nextSolutionFiniteDomain: 'NextSolution ' + this.state.counter});
 
-        this.state.counter++;
-
-        this.generateConstraint();
         /*
         Pour le groupe qui doit implémenter le solveur il faut le faire ici !!!! 
         @Stéphane !! 
@@ -162,37 +157,16 @@ class InputsComponent extends Component{
             console.log("Affichage result ::::: " + JSON.stringify(result));
             console.log("affichage result sans stringify " + result[0]);
             console.log(JSON.parse(JSON.stringify(result)));
-            let titi = JSON.parse(JSON.stringify(result));
-            for(var tutu in titi.values){
-            	console.log("KEY = " + tutu + "  VALUE = " + titi.values[tutu].value);
+            let resultJSON = JSON.parse(JSON.stringify(result));
+            for(var tutu in resultJSON.values){
+            	console.log("KEY = " + tutu + "  VALUE = " + resultJSON.values[tutu].value);
             }
+
+            this.setState({nextSolutionFiniteDomain:resultJSON});
 
             console.log('');
         });
 
-    }
-
-    generateConstraint(){
-        var constraint;
-
-        if(this.state.resultInput.size< this.state.firstInput.size|| this.state.resultInput.size < this.state.secondInput.size){
-            return 'No possible constraint';
-        }
-
-        var reverseFirst = this.state.firstInput.split("").reverse;
-        var reverseSecond = this.state.secondInput.split("").reverse;
-        var reverseResult = this.state.resultInput.split("").reverse;
-
-        var minimumIndex = Math.min(reverseFirst.size, reverseSecond.size);
-
-        console.log("Going to FORLOOP");
-
-        var i;
-        for (i=0; i<minimumIndex; i++){
-            console.log(reverseFirst[i] + " + " + reverseSecond[i] + " = " + reverseResult[i]);
-        }
-
-        return constraint;
     }
 
     render(){
@@ -211,7 +185,7 @@ class InputsComponent extends Component{
                     </CardContent>
                 </Card>
                 
-                <ConstraintComponent firstInput={this.state.firstInput} secondInput={this.state.secondInput} resultInput={this.state.resultInput} resultFiniteDomain={this.state.resultFiniteDomain}></ConstraintComponent>
+                <ConstraintComponent firstInput={this.state.firstInput} secondInput={this.state.secondInput} resultInput={this.state.resultInput}></ConstraintComponent>
                 <NextSolutionComponent nextSolutionFiniteDomain={this.state.nextSolutionFiniteDomain}></NextSolutionComponent>
             </div>
         );
